@@ -63,7 +63,8 @@ public class PalindromePartitioning {
 	}
 	
 	private static boolean checkPalindrome(String str) { 
-        int n = str.length() - 1; 
+        
+		int n = str.length() - 1; 
          
         int i = 0;
         
