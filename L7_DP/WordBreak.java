@@ -35,6 +35,8 @@ public class WordBreak {
 		
 	}
 	
+	//TC = O(m * n) where m is size of dictionary and n is size of word
+	//Time exceeds if size of dictionary is very large.
 	public int wordBreak(String A, ArrayList<String> B) {
 		
 		int n = A.length();
@@ -46,7 +48,7 @@ public class WordBreak {
 		
 		Arrays.fill(dp, 0);
 		
-		dp[0] = 1; //Here dp[i] is true if 's' can be broken into parts 0-i & i-1 and both the sub-strings present in dict 
+		dp[0] = 1; //Here dp[i] is true if 'A' can be broken into parts 0-i & i-1 and both the sub-strings present in dict 
 		
 		for (int i = 0; i < n; i++) {
 			
@@ -71,5 +73,38 @@ public class WordBreak {
 		}
 		
 		return dp[n];
+	}
+	
+	//TC = O(n^2) where n is the length of word i.e A
+	public int wordBreak_better(String A, ArrayList<String> B) {
+		
+		int n = A.length();
+		
+		if(n == 0)
+			return 1;
+		
+		int res[] = new int[n + 1];
+		
+		Arrays.fill(res, -1);
+		
+		res[0] = 0; 
+		
+		for (int i = 0; i < n; i++) {
+			
+			if(res[i] != -1) {
+				
+				for (int j = i + 1; j <= n; j++) {
+					
+					String tmp = A.substring(i, j);
+					if(B.contains(tmp))
+						res[j] = i;
+				}
+			}
+		}
+		
+		if(res[n] != -1)
+			return 1;
+		
+		return 0;
 	}
 }
