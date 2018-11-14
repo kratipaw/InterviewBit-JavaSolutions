@@ -81,10 +81,12 @@ public class WordLadder1 {
                 for(int i = 0; i < word.length(); i++){
                     
                 	for(char c = 'a'; c <= 'z'; c++){
-                        if(c != word.charAt(i)){
-                            char[] s = word.toCharArray();
-                            s[i] = c;
-                            String tmp = new String(s);
+                        
+                		if(c != word.charAt(i)){
+                            
+                			char[] s = word.toCharArray();
+                			s[i] = c;
+                			String tmp = new String(s);
                             
                             if(dictV.contains(tmp)){
                                 qu.add(tmp);
