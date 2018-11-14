@@ -32,16 +32,6 @@ import java.util.Queue;
  */
 public class WordLadder1 {
 
-	class WordNode{
-        String word;
-        int numSteps;
-
-        public WordNode(String word, int numSteps){
-            this.word = word;
-            this.numSteps = numSteps;
-        }
-    }
-	
 	public static void main(String[] args) {
 
 		String start = "hit";
