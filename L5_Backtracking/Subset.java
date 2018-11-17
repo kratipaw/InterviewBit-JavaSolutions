@@ -82,17 +82,15 @@ public class Subset {
 		
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
-        int n = A.size();
-        
-        if(n == 0)
+		ArrayList<Integer> subset = new ArrayList<Integer>();
+		
+		result.add(subset);	
+		
+		if(A == null || A.isEmpty() || A.size() == 0)
         	return result;
 		
         Collections.sort(A);
         
-		ArrayList<Integer> subset = new ArrayList<Integer>();
-		
-		result.add(subset);		
-		
 		subsetsUtil_IB(A, result, subset, 0);
 		
 		return result;
