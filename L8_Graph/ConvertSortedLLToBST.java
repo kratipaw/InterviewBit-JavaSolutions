@@ -19,13 +19,6 @@ package L8_Graph;
  * 
  */
 
-class TreeNode {
-     int val;
-     TreeNode left;
-     TreeNode right;
-     TreeNode(int x) { val = x; }
-}
-
 class ListNode {
 	public int val;
     public ListNode next;
