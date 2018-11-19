@@ -1,4 +1,4 @@
-package L5_hashing;
+package L5_Hashing;
 
 import java.util.ArrayList;
 import java.util.Collections;
