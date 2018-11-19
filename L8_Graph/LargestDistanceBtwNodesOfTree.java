@@ -4,7 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
+
+class point{
+    int depth;
+    int pos;
+    point(){
+        depth = 0;
+        pos = 0;
+    }
+}
 
 public class LargestDistanceBtwNodesOfTree {
 
@@ -30,71 +40,23 @@ public class LargestDistanceBtwNodesOfTree {
 	public int solve(ArrayList<Integer> A) {
 		
 		int n = A.size();
-		
-		if(n == 1 && A.get(0) > 0)
-			return 1;
-		
-		int root = 0;
-		
-		Graph gfh = new Graph(n);
-		
-		for (int i = 0; i < n; i++) {
-			int dest = A.get(i);
-			
-			if(dest != -1)
-				gfh.addEdge(i, A.get(i), false);
-			
-			else
-				root = i;
-		}
-		
-		Stack<Integer> stck= new Stack<Integer>();
-        
-        Deque<Integer> deque = new LinkedList<>();
-        
-        deque.addFirst(root);
-        
-        while(!deque.isEmpty())
-        {
-            int val = deque.removeFirst();
-            stck.push(val);
-            for(int j=0;j<gfh.adjList[val].size();j++)
-            {
-                deque.addLast(gfh.adjList[val].get(j));
-            }
+        int result = 0;
+        point[] arr = new point[n];
+        for(int i=0; i<n; i++){
+            arr[i] = new point();
         }
-        
-        int[] d = new int[A.size()];
-        
-        int finalans=0;
-        int sz=stck.size();
-        for(int i=0;i<sz;i++)
-        {
-            int maxi=0,maxi2=0;
-            int node = stck.pop();
-            for(int j=0;j<gfh.adjList[node].size();j++)
-            {
-                int val = d[gfh.adjList[node].get(j)];
-                if(val>=maxi)
-                {
-                    maxi2=maxi;
-                    maxi=val;
-                }
-                else
-                if(val<maxi && val>=maxi2)
-                {
-                    maxi2=val;
-                }
-            }
-            
-            d[node]=1+maxi;
-            
-            finalans=Math.max(finalans,maxi+maxi2);
-            //System.out.println(node + " "+ d[node] + " "+ finalans);
-            
+        for(int i=n-1; i>0; i--){
+            int k = A.get(i);
+            if(arr[k].depth<arr[k].pos) 
+            arr[k].depth = Math.max(arr[k].depth,(Math.max(arr[i].depth,arr[i].pos)+1));
+            else 
+            arr[k].pos   = Math.max(arr[k].pos,(Math.max(arr[i].depth,arr[i].pos)+1));
+            int y = arr[i].depth + (arr[i].pos);
+            if(result<y) result=y;
         }
-        
-        return finalans;
+        int k = arr[0].depth+arr[0].pos;
+        if(result<k) result=k;
+        return result;
 		
 	}
 
@@ -166,44 +128,3 @@ public class LargestDistanceBtwNodesOfTree {
 	}
 }
 
-class Graph{
-	
-	int V;
-	
-	LinkedList<Integer> adjList[];
-	
-	public Graph(int v) {
-	
-		V = v;
-		
-		adjList = new LinkedList[V];
-		
-		for (int i = 0; i < V; i++) {
-			adjList[i] = new LinkedList<Integer>();
-		}
-	}
-	
-	public void addEdge(int src, int dest, boolean directed) {
-		
-		adjList[src].add(dest);
-		
-		if(!directed)
-			adjList[dest].add(src);
-	}
-	
-	public void printGraph() {
-		
-		for (int i = 0; i < V; i++) {
-			
-			System.out.print(i + "\t");
-			
-			for (int j = 0; j < adjList[i].size(); j++) {
-				int n = adjList[i].get(j);
-				System.out.print(n + "\t");
-			}
-			
-			System.out.println();
-		}
-	}
-	
-}
