@@ -1,4 +1,4 @@
-package L2_Array;
+package L3_TwoPointers;
 
 import java.util.ArrayList;
 import java.util.Collections;
