@@ -3,18 +3,11 @@ package L8_Graph;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
-
-class point{
-    int depth;
-    int pos;
-    point(){
-        depth = 0;
-        pos = 0;
-    }
-}
 
 public class LargestDistanceBtwNodesOfTree {
 
@@ -39,25 +32,76 @@ public class LargestDistanceBtwNodesOfTree {
 	
 	public int solve(ArrayList<Integer> A) {
 		
-		int n = A.size();
-        int result = 0;
-        point[] arr = new point[n];
-        for(int i=0; i<n; i++){
-            arr[i] = new point();
-        }
-        for(int i=n-1; i>0; i--){
-            int k = A.get(i);
-            if(arr[k].depth<arr[k].pos) 
-            arr[k].depth = Math.max(arr[k].depth,(Math.max(arr[i].depth,arr[i].pos)+1));
-            else 
-            arr[k].pos   = Math.max(arr[k].pos,(Math.max(arr[i].depth,arr[i].pos)+1));
-            int y = arr[i].depth + (arr[i].pos);
-            if(result<y) result=y;
-        }
-        int k = arr[0].depth+arr[0].pos;
-        if(result<k) result=k;
-        return result;
+		LinkedList<Integer> adjList[] = new LinkedList[A.size()];
 		
+		for (int i = 0; i < adjList.length; i++) {
+			adjList[i] = new LinkedList<Integer>();
+		}
+		
+		int root = 0;
+		
+		for(int i = 0 ; i < A.size() ; i++) {
+			if(A.get(i) == -1) {
+				root = i;
+				break;
+			}
+			else {
+				adjList[i].add(A.get(i));
+				adjList[A.get(i)].add(i);
+			}
+		}
+		
+		int diameter[] = new int[A.size()];
+		
+		int init = bfs(A, root, diameter, adjList);
+		
+		int end = bfs(A, init - 1, diameter, adjList);
+		
+		return diameter[end - 1];
+	}
+	
+	public int bfs(ArrayList<Integer> A, int start, int[] diameter, LinkedList<Integer> adjList[]) {
+		
+		Queue<Integer> qu = new LinkedList<>();
+		
+		qu.add(start);
+		
+		boolean visited[] = new boolean[A.size()];
+		
+		Arrays.fill(visited, false);
+		Arrays.fill(diameter, 0);
+		System.out.println("Start : " + start);
+		visited[start] = true;
+		
+		while(!qu.isEmpty()){
+			
+			int tmp = qu.poll();
+			
+			Iterator<Integer> it = adjList[tmp].listIterator();
+			
+			while(it.hasNext()) {
+				
+				int next = it.next();
+				
+				if(!visited[next]) {
+					
+					visited[next] = true;
+					
+					diameter[next] += diameter[tmp] + 1;
+					
+					qu.add(next);
+				}
+			}
+		}
+		
+		int max = Integer.MIN_VALUE;
+		int i;
+		for (i = 0; i < diameter.length; i++) {
+			if(diameter[i] > max)
+				max = diameter[i];
+		}
+		
+		return i;
 	}
 
 	//Getting StackOverflow Exception
