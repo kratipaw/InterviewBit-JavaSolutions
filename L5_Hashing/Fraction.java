@@ -12,6 +12,8 @@ import java.util.Map;
  * Given numerator = 1, denominator = 2, return "0.5"
  * Given numerator = 2, denominator = 1, return "2"
  * Given numerator = 2, denominator = 3, return "0.(6)"
+ * 
+ * Hint : Use StringBuilder & Long to reduce time limit & cover edge cases. 
  */
 
 public class Fraction {
@@ -37,7 +39,7 @@ public class Fraction {
 		n = Math.abs(n);
 		long d = B;
 		d = Math.abs(d);
-		System.out.println("n : " + n + ", d : " + d);
+		//System.out.println("n : " + n + ", d : " + d);
 		
 		long quot = n / d;
 		
