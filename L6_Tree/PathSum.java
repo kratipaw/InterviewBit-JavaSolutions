@@ -59,7 +59,7 @@ public class PathSum {
 	
 	private static int hasPathSum_2(Node A, int B) {
 		
-		boolean ans = has(a,b);
+		boolean ans = has(A,B);
 	    	
 		if (ans == true)
 	        	return 1;
@@ -68,13 +68,13 @@ public class PathSum {
 	
 	private static boolean has(Node A, int sum){
 		
-		if (node == null)
+		if (A == null)
             		return false;
         	
-		if (node.left == null && node.right == null && sum == node.val)
+		if (A.left == null && A.right == null && sum == A.val)
             		return true;
 		
-        	return has(node.left, sum-node.val)|| has(node.right,sum-node.val);
+        	return has(A.left, sum-A.val)|| has(A.right,sum-A.val);
 	}
 
 }
