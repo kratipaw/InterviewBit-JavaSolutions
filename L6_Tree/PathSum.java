@@ -56,5 +56,25 @@ public class PathSum {
 			return result;
 		}
 	}
+	
+	private static int hasPathSum_2(Node A, int B) {
+		
+		boolean ans = has(a,b);
+	    	
+		if (ans == true)
+	        	return 1;
+	   	 return 0;
+	}
+	
+	private static boolean has(Node A, int sum){
+		
+		if (node == null)
+            		return false;
+        	
+		if (node.left == null && node.right == null && sum == node.val)
+            		return true;
+		
+        	return has(node.left, sum-node.val)|| has(node.right,sum-node.val);
+	}
 
 }
