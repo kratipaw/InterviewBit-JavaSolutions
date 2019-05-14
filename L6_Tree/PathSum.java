@@ -71,10 +71,10 @@ public class PathSum {
 		if (A == null)
             		return false;
         	
-		if (A.left == null && A.right == null && sum == A.val)
+		if (A.left == null && A.right == null && sum == A.data)
             		return true;
 		
-        	return has(A.left, sum-A.val)|| has(A.right,sum-A.val);
+        	return has(A.left, sum-A.data)|| has(A.right,sum-A.data);
 	}
 
 }

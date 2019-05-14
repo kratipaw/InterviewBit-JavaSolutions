@@ -1,4 +1,4 @@
-package graph;
+package L8_Graph;
 
 /**
  * Given N * M field of O's and X's, where O=white, X=black

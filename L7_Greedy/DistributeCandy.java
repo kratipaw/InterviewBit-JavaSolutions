@@ -1,4 +1,4 @@
-package greedy;
+package L7_Greedy;
 
 import java.util.ArrayList;
 
