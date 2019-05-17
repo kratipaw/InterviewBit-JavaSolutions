@@ -1,29 +1,27 @@
-package L4_LinkedList;
-
 public class PalindromeList {
 
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(1);
-		list.root.next = new Node(1);
-		list.root.next.next = new Node(3);
-		list.root.next.next.next = new Node(4);
-		list.root.next.next.next.next = new Node(4);
-		list.root.next.next.next.next.next = new Node(4);
-		list.root.next.next.next.next.next.next = new Node(3);
-		list.root.next.next.next.next.next.next.next = new Node(1);
-		list.root.next.next.next.next.next.next.next.next = new Node(1);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(1);
+		list.root.next.next = new LinkedListNode(3);
+		list.root.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next.next.next = new LinkedListNode(3);
+		list.root.next.next.next.next.next.next.next = new LinkedListNode(1);
+		list.root.next.next.next.next.next.next.next.next = new LinkedListNode(1);
 		
 		System.out.println(lPalin(list.root));
 	}
 
-	private static int lPalin(Node A) {
+	private static int lPalin(LinkedListNode A) {
     
-		Node slow = A;
-		Node fast = A;
-		Node prev_slow = null;
+		LinkedListNode slow = A;
+		LinkedListNode fast = A;
+		LinkedListNode prev_slow = null;
 		
 		if(A!=null && A.next!=null) {
 		
@@ -34,7 +32,7 @@ public class PalindromeList {
 				fast = fast.next.next;
 			}
 			
-			//Node midNode = null;
+			//LinkedListNode midNode = null;
 			
 			if(fast!=null) {
 				//midNode = slow;
@@ -43,8 +41,8 @@ public class PalindromeList {
 			
 			prev_slow.next = null;
 			
-			Node second = reverse(slow);
-			Node first = A;
+			LinkedListNode second = reverse(slow);
+			LinkedListNode first = A;
 			while(second!=null) {
 				
 				if(first.data!=second.data)
@@ -57,11 +55,11 @@ public class PalindromeList {
 		return 1;
 	}
 	
-	private static Node reverse(Node node) {
+	private static LinkedListNode reverse(LinkedListNode node) {
 		
-		Node curr = node;
-		Node prev = null;
-		Node next = null;
+		LinkedListNode curr = node;
+		LinkedListNode prev = null;
+		LinkedListNode next = null;
 		
 		while(curr!=null) {
 			

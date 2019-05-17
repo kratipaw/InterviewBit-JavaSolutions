@@ -1,22 +1,20 @@
-package L6_Tree;
-
 public class BalancedBST {
 
 	public static void main(String[] args) {
 
 		
-		Node A = new Node(1);
-		A.left = new Node(2);
-		A.right = new Node(3);
-		A.left.left = new Node(4);
-		A.right.left = new Node(5);
+		TreeNode A = new TreeNode(1);
+		A.left = new TreeNode(2);
+		A.right = new TreeNode(3);
+		A.left.left = new TreeNode(4);
+		A.right.left = new TreeNode(5);
 	
 		System.out.println(isBalanced(A));
 		
 		System.out.println(isBalanced_efficient(A, 0));
 	}
 
-	private static int isBalanced(Node A) {
+	private static int isBalanced(TreeNode A) {
     
 		if(A == null)
 			return 1;
@@ -31,7 +29,7 @@ public class BalancedBST {
 		return 0;
 	}
 	
-	private static int height(Node node) {
+	private static int height(TreeNode node) {
 		
 		if(node == null)
 			return 0;
@@ -39,7 +37,7 @@ public class BalancedBST {
 		return 1 + Math.max(height(node.left), height(node.right));
 	}
 	
-	private static boolean isBalanced_efficient(Node A, int height) {
+	private static boolean isBalanced_efficient(TreeNode A, int height) {
 		
 		if(A == null) {
 			height = 0;

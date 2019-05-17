@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -7,15 +5,15 @@ public class PreorderTraversal {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(1);
-		A.left = new Node(2);
-		A.right = new Node(3);
-		A.left.left = new Node(-1);
-		A.left.right = new Node(-1);
-		A.right.left = new Node(4);
-		A.right.right = new Node(-1);
-		A.right.left.left = new Node(-1);
-		A.right.left.right = new Node(5);
+		TreeNode A = new TreeNode(1);
+		A.left = new TreeNode(2);
+		A.right = new TreeNode(3);
+		A.left.left = new TreeNode(-1);
+		A.left.right = new TreeNode(-1);
+		A.right.left = new TreeNode(4);
+		A.right.right = new TreeNode(-1);
+		A.right.left.left = new TreeNode(-1);
+		A.right.left.right = new TreeNode(5);
 		
 		ArrayList<Integer> result = preorderTraversal(A);
 		
@@ -24,27 +22,27 @@ public class PreorderTraversal {
 		}
 	}
 	
-	private static ArrayList<Integer> preorderTraversal(Node A) {
+	private static ArrayList<Integer> preorderTraversal(TreeNode A) {
      
 		ArrayList<Integer> result = new ArrayList<>();
 		
 		if(A == null)
 			return result;
 		
-		Stack<Node> stack = new Stack<>();
+		Stack<TreeNode> stack = new Stack<>();
 		
 		stack.add(A);
 		
 		while(!stack.isEmpty()) {
 			
-			Node temp = stack.pop(); 
+			TreeNode temp = stack.pop(); 
 			
-			result.add(temp.data);
+			result.add(temp.val);
 			
-			if(temp.right!=null && temp.right.data!=-1)
+			if(temp.right!=null && temp.right.val!=-1)
 				stack.add(temp.right);
 			
-			if(temp.left!=null && temp.left.data!=-1)
+			if(temp.left!=null && temp.left.val!=-1)
 				stack.add(temp.left);
 			
 		}

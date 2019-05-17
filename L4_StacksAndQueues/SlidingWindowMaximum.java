@@ -1,5 +1,3 @@
-package L4_StacksAndQueues;
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;

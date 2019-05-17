@@ -1,5 +1,3 @@
-package L7_DP;
-
 public class EditDistance {
 
 	public static void main(String[] args) {

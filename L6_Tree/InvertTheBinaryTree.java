@@ -1,27 +1,25 @@
-package L6_Tree;
-
 public class InvertTheBinaryTree {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(1);
-		A.left = new Node(2);
-		A.right = new Node(3);
-		A.left.left = new Node(4);
-		A.left.right = new Node(5);
-		A.right.left = new Node(6);
+		TreeNode A = new TreeNode(1);
+		A.left = new TreeNode(2);
+		A.right = new TreeNode(3);
+		A.left.left = new TreeNode(4);
+		A.left.right = new TreeNode(5);
+		A.right.left = new TreeNode(6);
 		
-		Node res = invertTree(A);
+		TreeNode res = invertTree(A);
 		
 	}
 	
-	private static Node invertTree(Node A) {
+	private static TreeNode invertTree(TreeNode A) {
     
 		if(A == null)
 			return A;
 		
-		Node left = invertTree(A.left);
-		Node right = invertTree(A.right);
+		TreeNode left = invertTree(A.left);
+		TreeNode right = invertTree(A.right);
 		
 		A.left = right;
 		A.right = left;

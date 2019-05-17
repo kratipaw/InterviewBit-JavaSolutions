@@ -1,26 +1,24 @@
-package L4_LinkedList;
-
 public class PartitionList {
 
 	public static void main(String[] args) {
-		Node root = new Node(1);
-		root.next = new Node(4);
-		root.next.next = new Node(3);
-		root.next.next.next = new Node(2);
-		root.next.next.next.next = new Node(5);
-		root.next.next.next.next.next = new Node(2);
+		LinkedListNode root = new LinkedListNode(1);
+		root.next = new LinkedListNode(4);
+		root.next.next = new LinkedListNode(3);
+		root.next.next.next = new LinkedListNode(2);
+		root.next.next.next.next = new LinkedListNode(5);
+		root.next.next.next.next.next = new LinkedListNode(2);
 		
 		int B = 3;
 		
-		Node result = partition(root, B);
+		LinkedListNode result = partition(root, B);
 		
 		printLinkedList(result);
 
 	}
 	
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
 		
-		Node element = node;
+		LinkedListNode element = node;
 		
 		while(element != null) {
 			System.out.print(element.data + "   ");
@@ -30,22 +28,22 @@ public class PartitionList {
 		System.out.println();
 	}
 	
-	private static Node partition(Node A, int B) {
+	private static LinkedListNode partition(LinkedListNode A, int B) {
     
 		if(A == null || A.next == null)
 			return A;
 		
-		Node beforeStart = null; 
-		Node beforeEnd = null;
+		LinkedListNode beforeStart = null; 
+		LinkedListNode beforeEnd = null;
 		
-		Node afterStart = null;
-		Node afterEnd = null;
+		LinkedListNode afterStart = null;
+		LinkedListNode afterEnd = null;
 		
-		Node current = A;
+		LinkedListNode current = A;
 		
 		while(current != null) 
 		{
-			Node next = current.next;
+			LinkedListNode next = current.next;
 			current.next = null;
 			if(current.data < B) 
 			{

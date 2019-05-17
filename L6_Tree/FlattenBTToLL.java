@@ -1,25 +1,23 @@
-package L6_Tree;
-
 import java.util.Stack;
 
 public class FlattenBTToLL {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(1);
-		A.left = new Node(2);
-		A.right = new Node(5);
-		A.left.left = new Node(3);
-		A.left.right = new Node(4);
-		A.right.right = new Node(6);
+		TreeNode A = new TreeNode(1);
+		A.left = new TreeNode(2);
+		A.right = new TreeNode(5);
+		A.left.left = new TreeNode(3);
+		A.left.right = new TreeNode(4);
+		A.right.right = new TreeNode(6);
 		
-		Node result = flatten(A);
+		TreeNode result = flatten(A);
 		
 		printList(result);
 		
 	}
 
-	private static Node flatten(Node a) {
+	private static TreeNode flatten(TreeNode a) {
 		
 		/*if(a == null || (a.left == null && a.right == null))
 			return a;
@@ -28,13 +26,13 @@ public class FlattenBTToLL {
 			
 			flatten(a.left);
 			
-			Node temp = a.right;
+			TreeNode temp = a.right;
 			
 			a.right = a.left;
 			
 			a.left = null;
 			
-			Node node = a.right;
+			TreeNode node = a.right;
 			
 			while(node.right != null) {
 				node = node.right;
@@ -49,9 +47,9 @@ public class FlattenBTToLL {
 		return a;
 		*/
 		
-		Stack<Node> st = new Stack<>();
+		Stack<TreeNode> st = new Stack<>();
 		
-		Node temp = a;
+		TreeNode temp = a;
 		
 		while(a != null || !st.isEmpty()) {
 			
@@ -73,12 +71,12 @@ public class FlattenBTToLL {
 		
     }
 	
-	private static void printList(Node head) {
+	private static void printList(TreeNode head) {
 		
-		Node temp = head;
+		TreeNode temp = head;
 		
 		while(temp!=null) {
-			System.out.print(temp.data + " ");
+			System.out.print(temp.val + " ");
 			temp = temp.right;
 		}
 		

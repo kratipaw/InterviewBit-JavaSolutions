@@ -1,25 +1,23 @@
-package L6_Tree;
-
 public class SymmetricBinaryTree {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(1);
-		A.left = new Node(2);
-		A.right = new Node(3);
-		A.left.left = new Node(4);
-		A.right.left = new Node(4);
+		TreeNode A = new TreeNode(1);
+		A.left = new TreeNode(2);
+		A.right = new TreeNode(3);
+		A.left.left = new TreeNode(4);
+		A.right.left = new TreeNode(4);
 		
 		System.out.println(isSymmetric(A));
 	}
 	
-	private static int isSymmetric(Node A) {
+	private static int isSymmetric(TreeNode A) {
 		
 		return isMirror(A, A);
 		
     }
 
-	private static int isMirror(Node A, Node B) {
+	private static int isMirror(TreeNode A, TreeNode B) {
 		
 		if(A == null && B == null)
 			return 1;
@@ -27,7 +25,7 @@ public class SymmetricBinaryTree {
 		if(A == null || B == null)
 			return 0;
 		
-		if(A.data == B.data && isMirror(A.left, B.right) == 1 && isMirror(A.right, B.left) == 1)
+		if(A.val == B.val && isMirror(A.left, B.right) == 1 && isMirror(A.right, B.left) == 1)
 			return 1;
 		else
 			return 0;

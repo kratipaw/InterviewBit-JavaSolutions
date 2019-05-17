@@ -1,5 +1,3 @@
-package L3_BitMani;
-
 /**
  * Reverse bits of an 32 bit unsigned integer
 

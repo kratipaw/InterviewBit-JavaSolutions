@@ -1,5 +1,3 @@
-package L4_LinkedList;
-
 public class SwapListNodesInPairs {
 
 	public static void main(String[] args) {
@@ -7,24 +5,24 @@ public class SwapListNodesInPairs {
 		
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(10);
-		list.root.next = new Node(5);
-		list.root.next.next = new Node(4);
-		list.root.next.next.next = new Node(3);
+		list.root = new LinkedListNode(10);
+		list.root.next = new LinkedListNode(5);
+		list.root.next.next = new LinkedListNode(4);
+		list.root.next.next.next = new LinkedListNode(3);
 		
 		System.out.println("original list : ");
 		
 		printList(list.root);
 		
-		Node head = swapPairs(list.root);
+		LinkedListNode head = swapPairs(list.root);
 		
 		printList(head);
 		
 	}
 	
-	private static void printList(Node head) {
+	private static void printList(LinkedListNode head) {
 		
-		Node element = head;
+		LinkedListNode element = head;
 		
 		while(element!=null) {
 			System.out.print(element.data + " ");
@@ -34,18 +32,18 @@ public class SwapListNodesInPairs {
 		System.out.println();
 	}
 
-	private static Node swapPairs(Node A) {
+	private static LinkedListNode swapPairs(LinkedListNode A) {
 		
 		if(A == null || A.next == null)
 			return A;
 		
-		Node prev = A;
+		LinkedListNode prev = A;
 		
-		Node curr = A.next;
+		LinkedListNode curr = A.next;
 		
-		Node next = null;
+		LinkedListNode next = null;
 		
-		Node head = curr;
+		LinkedListNode head = curr;
 		
 		while(true) {
 			

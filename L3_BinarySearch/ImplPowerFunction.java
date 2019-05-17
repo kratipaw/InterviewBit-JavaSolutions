@@ -1,5 +1,3 @@
-package L3_BinarySearch;
-
 public class ImplPowerFunction {
 
 	public static void main(String[] args) {

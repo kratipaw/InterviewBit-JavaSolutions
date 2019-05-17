@@ -1,5 +1,3 @@
-package L4_StacksAndQueues;
-
 public class Main {
 
 	public static void main(String[] args) {

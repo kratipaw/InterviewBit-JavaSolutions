@@ -1,5 +1,3 @@
-package L3_String;
-
 public class CompareVersions {
 
 	public static void main(String[] args) {

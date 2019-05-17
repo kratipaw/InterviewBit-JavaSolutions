@@ -1,18 +1,16 @@
-package L6_Tree;
-
 import java.util.Stack;
 
 public class TwoSumBST {
 
 	public static void main(String[] args) {
 
-		Node root = new Node(15);
-		root.left = new Node(10);
-		root.right = new Node(20);
-		root.left.left = new Node(8);
-		root.left.right = new Node(12);
-		root.right.left = new Node(16);
-		root.right.right = new Node(25);
+		TreeNode root = new TreeNode(15);
+		root.left = new TreeNode(10);
+		root.right = new TreeNode(20);
+		root.left.left = new TreeNode(8);
+		root.left.right = new TreeNode(12);
+		root.right.left = new TreeNode(16);
+		root.right.right = new TreeNode(25);
 		
 		int B = 33;
 		
@@ -20,18 +18,18 @@ public class TwoSumBST {
 		
 	}
 	
-	private static int t2Sum(Node A, int B) {
+	private static int t2Sum(TreeNode A, int B) {
 		
 		if(A == null)
 			return 0;
 		
-		Stack<Node> inST = new Stack<Node>();
+		Stack<TreeNode> inST = new Stack<TreeNode>();
 		
-		Stack<Node> revInST = new Stack<Node>();
+		Stack<TreeNode> revInST = new Stack<TreeNode>();
 		
-		Node inCurr = A;
+		TreeNode inCurr = A;
 		
-		Node revInCur = A;
+		TreeNode revInCur = A;
 		
 		boolean inFlag = false, revInFlag = false;
 		
@@ -53,7 +51,7 @@ public class TwoSumBST {
 					
 					else{
 						inCurr = inST.pop();
-						inData = inCurr.data;
+						inData = inCurr.val;
 						inCurr = inCurr.right;
 						inFlag = true;
 					}
@@ -76,7 +74,7 @@ public class TwoSumBST {
 					else {
 						
 						revInCur = revInST.pop();
-						revInData = revInCur.data;
+						revInData = revInCur.val;
 						revInCur = revInCur.left;
 						revInFlag = true;
 					}

@@ -1,18 +1,16 @@
-package L6_Tree;
-
 public class PathSum {
 
 	public static void main(String[] args) {
 
-		Node root = new Node(5);
-		root.left = new Node(4);
-		root.right = new Node(8);
-		root.left.left = new Node(11);
-		root.right.left = new Node(13);
-		root.right.right = new Node(4);
-		root.left.left.left = new Node(7);
-		root.left.left.right = new Node(2);
-		root.right.right.right = new Node(1);
+		TreeNode root = new TreeNode(5);
+		root.left = new TreeNode(4);
+		root.right = new TreeNode(8);
+		root.left.left = new TreeNode(11);
+		root.right.left = new TreeNode(13);
+		root.right.right = new TreeNode(4);
+		root.left.left.left = new TreeNode(7);
+		root.left.left.right = new TreeNode(2);
+		root.right.right.right = new TreeNode(1);
 		
 		int B = 21;
 		
@@ -20,7 +18,7 @@ public class PathSum {
 		
 	}
 	
-	private static int hasPathSum(Node A, int B) {
+	private static int hasPathSum(TreeNode A, int B) {
     
 		if(A == null) {
 			
@@ -35,7 +33,7 @@ public class PathSum {
 			
 			int result = 0;
 
-			int sum = B - A.data;
+			int sum = B - A.val;
 			
 			if (sum == 0 && A.left == null && A.right == null)
 				return 1;
@@ -57,7 +55,7 @@ public class PathSum {
 		}
 	}
 	
-	private static int hasPathSum_2(Node A, int B) {
+	private static int hasPathSum_2(TreeNode A, int B) {
 		
 		boolean ans = has(A,B);
 	    	
@@ -66,15 +64,15 @@ public class PathSum {
 	   	 return 0;
 	}
 	
-	private static boolean has(Node A, int sum){
+	private static boolean has(TreeNode A, int sum){
 		
 		if (A == null)
             		return false;
         	
-		if (A.left == null && A.right == null && sum == A.data)
+		if (A.left == null && A.right == null && sum == A.val)
             		return true;
 		
-        	return has(A.left, sum-A.data)|| has(A.right,sum-A.data);
+        	return has(A.left, sum-A.val)|| has(A.right,sum-A.val);
 	}
 
 }

@@ -1,5 +1,3 @@
-package L2_Math;
-
 public class SortedPermutationRank {
 
 	public int MOD = 1000003;

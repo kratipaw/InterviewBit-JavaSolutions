@@ -1,5 +1,3 @@
-package L3_String;
-
 public class ZigZagString {
 
 	public static void main(String[] args) {

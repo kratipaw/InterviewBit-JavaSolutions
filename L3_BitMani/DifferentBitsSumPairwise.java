@@ -1,5 +1,3 @@
-package L3_BitMani;
-
 import java.util.ArrayList;
 
 public class DifferentBitsSumPairwise {

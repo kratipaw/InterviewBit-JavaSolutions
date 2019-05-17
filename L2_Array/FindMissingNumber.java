@@ -1,5 +1,3 @@
-package L2_Array;
-
 import java.util.ArrayList;
 
 public class FindMissingNumber {

@@ -1,37 +1,35 @@
-package L4_LinkedList;
-
 public class RemoveDupFromSortedList {
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(1);
-		list.root.next = new Node(1);
-		list.root.next.next = new Node(2);
-		list.root.next.next.next = new Node(2);
-		list.root.next.next.next.next = new Node(3);
-		list.root.next.next.next.next.next = new Node(3);
-		list.root.next.next.next.next.next.next = new Node(3);
-		list.root.next.next.next.next.next.next.next = new Node(4);
-		list.root.next.next.next.next.next.next.next.next = new Node(4);
-		//list.root.next.next.next.next.next.next.next.next.next = new Node(5);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(1);
+		list.root.next.next = new LinkedListNode(2);
+		list.root.next.next.next = new LinkedListNode(2);
+		list.root.next.next.next.next = new LinkedListNode(3);
+		list.root.next.next.next.next.next = new LinkedListNode(3);
+		list.root.next.next.next.next.next.next = new LinkedListNode(3);
+		list.root.next.next.next.next.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next.next.next.next.next = new LinkedListNode(4);
+		//list.root.next.next.next.next.next.next.next.next.next = new LinkedListNode(5);
 		
 		list.printLinkedList();
 		
-		/*Node result = deleteDuplicates(list.root);
+		/*LinkedListNode result = deleteDuplicates(list.root);
 		
 		printLinkedList(result);
 		*/
 
-		Node result = deleteDuplicates_2(list.root);
+		LinkedListNode result = deleteDuplicates_2(list.root);
 		
 		printLinkedList(result);
 		
 	}
 	
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
     	
-    	Node element = node;
+    	LinkedListNode element = node;
     	
     	while(element != null) {
     		System.out.print(element.data + "   ");
@@ -41,11 +39,11 @@ public class RemoveDupFromSortedList {
     	System.out.println();
     }
 	
-	private static Node deleteDuplicates(Node A) {
+	private static LinkedListNode deleteDuplicates(LinkedListNode A) {
 		
-		Node prev = null;
+		LinkedListNode prev = null;
 		
-		Node curr = A;
+		LinkedListNode curr = A;
 		
 		while(curr!=null) {
 			
@@ -61,12 +59,12 @@ public class RemoveDupFromSortedList {
 		return A;
 	}
 	
-	private static Node deleteDuplicates_2(Node A) {
+	private static LinkedListNode deleteDuplicates_2(LinkedListNode A) {
 		
-		Node dummy = new Node(0);
+		LinkedListNode dummy = new LinkedListNode(0);
 		dummy.next = A;
-		Node prev = dummy;
-		Node curr = A;
+		LinkedListNode prev = dummy;
+		LinkedListNode curr = A;
 		
 		while(curr!=null) {
 			

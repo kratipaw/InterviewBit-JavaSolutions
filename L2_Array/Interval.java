@@ -1,5 +1,3 @@
-package L2_Array;
-
 public class Interval {
 	    int start;
 	    int end;

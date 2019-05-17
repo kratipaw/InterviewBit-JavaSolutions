@@ -1,5 +1,3 @@
-package L6_Tree;
-
 public class PrintNodesAtDistanceKFromTraget_notIB {
 
 	public static void main(String[] args) {
@@ -7,15 +5,15 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
 		BinaryTree tree = new BinaryTree(); 
 		   
         /* Let us construct the tree shown in above diagram */
-        tree.root = new Node(20); 
-        tree.root.left = new Node(8); 
-        tree.root.right = new Node(22); 
-        tree.root.left.left = new Node(4); 
-        tree.root.left.right = new Node(12); 
-        tree.root.left.right.left = new Node(10); 
-        tree.root.left.right.right = new Node(14); 
+        tree.root = new TreeNode(20); 
+        tree.root.left = new TreeNode(8); 
+        tree.root.right = new TreeNode(22); 
+        tree.root.left.left = new TreeNode(4); 
+        tree.root.left.right = new TreeNode(12); 
+        tree.root.left.right.left = new TreeNode(10); 
+        tree.root.left.right.right = new TreeNode(14); 
         
-        Node target = tree.root.left; 
+        TreeNode target = tree.root.left; 
         
         
         printkdistanceNode(tree.root, target, 2); 
@@ -23,7 +21,7 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
 	}
 	
 	
-	static void printkdistanceNodeDown(Node node, int k)  
+	static void printkdistanceNodeDown(TreeNode node, int k)  
     { 
         // Base Case 
         if (node == null || k < 0) 
@@ -32,7 +30,7 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
         // If we reach a k distant node, print it 
         if (k == 0)  
         { 
-            System.out.print(node.data); 
+            System.out.print(node.val); 
             System.out.println(""); 
             return; 
         } 
@@ -46,13 +44,13 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
     // The k distant nodes may be upward or downward.This function 
     // Returns distance of root from target node, it returns -1 
     // if target node is not present in tree rooted with root. 
-    static int printkdistanceNode(Node node, Node target, int k)  
+    static int printkdistanceNode(TreeNode node, TreeNode target, int k)  
     { 
         // Base Case 1: If tree is empty, return -1 
         if (node == null) 
             return -1; 
    
-        System.out.println("node.data : " + node.data);
+        System.out.println("node.data : " + node.val);
         // If target is same as root.  Use the downward function 
         // to print all nodes at distance k in subtree rooted with 
         // target or root 
@@ -66,11 +64,11 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
         int dl = printkdistanceNode(node.left, target, k); 
    
         System.out.println("dl : " + dl);
-        System.out.println("node.data Outside : " + node.data);
+        System.out.println("node.data Outside : " + node.val);
         // Check if target node was found in left subtree 
         if (dl != -1)  
         { 
-        	System.out.println("node.data Inside: " + node.data);
+        	System.out.println("node.data Inside: " + node.val);
             // If root is at distance k from target, print root 
             // Note that dl is Distance of root's left child from  
             // target 
@@ -78,7 +76,7 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
             if (dl + 1 == k)  
             { 
             	System.out.println("dl + 1 : " + k);
-                System.out.print(node.data); 
+                System.out.print(node.val); 
                 System.out.println(""); 
             } 
                
@@ -99,7 +97,7 @@ public class PrintNodesAtDistanceKFromTraget_notIB {
         { 
             if (dr + 1 == k)  
             { 
-                System.out.print(node.data); 
+                System.out.print(node.val); 
                 System.out.println(""); 
             }  
             else 

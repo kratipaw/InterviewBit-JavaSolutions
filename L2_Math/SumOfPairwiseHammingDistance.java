@@ -1,5 +1,3 @@
-package L2_Math;
-
 import java.util.ArrayList;
 import java.util.List;
 

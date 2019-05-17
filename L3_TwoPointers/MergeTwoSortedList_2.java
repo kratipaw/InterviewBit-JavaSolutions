@@ -1,5 +1,3 @@
-package L3_TwoPointers;
-
 import java.util.ArrayList;
 
 public class MergeTwoSortedList_2 {

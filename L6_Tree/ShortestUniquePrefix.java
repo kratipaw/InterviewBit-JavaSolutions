@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 
 public class ShortestUniquePrefix {

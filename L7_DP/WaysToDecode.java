@@ -1,5 +1,3 @@
-package L7_DP;
-
 public class WaysToDecode {
 
 	public static void main(String[] args) {

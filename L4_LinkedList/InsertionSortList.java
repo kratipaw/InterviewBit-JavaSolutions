@@ -1,23 +1,21 @@
-package L4_LinkedList;
-
 public class InsertionSortList {
 
 	public static void main(String[] args) {
 		
-		Node head = new Node(4);
-		head.next = new Node(3);
-		head.next.next = new Node(0);
-		head.next.next.next = new Node(2);
+		LinkedListNode head = new LinkedListNode(4);
+		head.next = new LinkedListNode(3);
+		head.next.next = new LinkedListNode(0);
+		head.next.next.next = new LinkedListNode(2);
 		
-		Node result = insertionSortList(head);
+		LinkedListNode result = insertionSortList(head);
 		
 		printLinkedList(result);
 		
 	}
 	
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
 		
-		Node element = node;
+		LinkedListNode element = node;
 		
 		while(element != null) {
 			System.out.print(element.data + "   ");
@@ -28,21 +26,21 @@ public class InsertionSortList {
 	}
 	
 	
-	private static Node insertionSortList(Node A){
+	private static LinkedListNode insertionSortList(LinkedListNode A){
 		
 		if (A == null || A.next == null) {
             return A;
         }
 		
-        Node dummy = new Node(0);
+        LinkedListNode dummy = new LinkedListNode(0);
         
-        Node curr = A;
+        LinkedListNode curr = A;
         
         while (curr != null) {
             
-        	Node temp = curr.next;
+        	LinkedListNode temp = curr.next;
         	
-        	Node node = dummy;
+        	LinkedListNode node = dummy;
             
             while (node.next != null && node.next.data < curr.data) {
             	System.out.println("inside during node : " + node.data);

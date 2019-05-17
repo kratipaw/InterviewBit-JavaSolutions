@@ -1,5 +1,3 @@
-package L3_TwoPointers;
-
 import java.util.ArrayList;
 import java.util.Collections;
 

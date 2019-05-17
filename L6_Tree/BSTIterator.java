@@ -1,19 +1,17 @@
-package L6_Tree;
-
 import java.util.Stack;
 
 public class BSTIterator {
 
-	Stack<Node> st = null;
+	Stack<TreeNode> st = null;
 	
 	public static void main(String[] args) {
 
-		Node root = new Node(1);
+		TreeNode root = new TreeNode(1);
 		
-		root.left = new Node(2);
-		root.right = new Node(3);
-		root.right.left = new Node(4);
-		root.right.left.right = new Node(5);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+		root.right.left = new TreeNode(4);
+		root.right.left.right = new TreeNode(5);
 		
 		BSTIterator bst = new BSTIterator(root);
 		
@@ -23,11 +21,11 @@ public class BSTIterator {
 		
 	}
 	
-	public BSTIterator(Node node) {
+	public BSTIterator(TreeNode node) {
 
-		st = new Stack<Node>();
+		st = new Stack<TreeNode>();
 		
-		Node curr = node;
+		TreeNode curr = node;
 		while(curr != null) {
 			st.push(curr);
 			curr = curr.left;
@@ -45,9 +43,9 @@ public class BSTIterator {
     /** @return the next smallest number */
     public int next() {
         
-    	Node node = st.pop();
+    	TreeNode node = st.pop();
     	
-    	int result = node.data;
+    	int result = node.val;
     	
     	if(node.right != null) {
     		node = node.right;

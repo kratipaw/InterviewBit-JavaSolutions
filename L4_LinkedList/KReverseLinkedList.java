@@ -1,27 +1,25 @@
-package L4_LinkedList;
-
 public class KReverseLinkedList {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(1);
-		A.next = new Node(2);
-		A.next.next = new Node(3);
-		A.next.next.next = new Node(4);
-		A.next.next.next.next = new Node(5);
-		A.next.next.next.next.next = new Node(6);
-		A.next.next.next.next.next.next = new Node(7);
-		A.next.next.next.next.next.next.next = new Node(8);
+		LinkedListNode A = new LinkedListNode(1);
+		A.next = new LinkedListNode(2);
+		A.next.next = new LinkedListNode(3);
+		A.next.next.next = new LinkedListNode(4);
+		A.next.next.next.next = new LinkedListNode(5);
+		A.next.next.next.next.next = new LinkedListNode(6);
+		A.next.next.next.next.next.next = new LinkedListNode(7);
+		A.next.next.next.next.next.next.next = new LinkedListNode(8);
 		
-		Node result = reverseList(A, 3);
+		LinkedListNode result = reverseList(A, 3);
 		
 		printList(result);
 		
 	}
 
-	private static void printList(Node head) {
+	private static void printList(LinkedListNode head) {
 		
-		Node element = head;
+		LinkedListNode element = head;
 		
 		while(element!=null) {
 			System.out.print(element.data + " ");
@@ -31,14 +29,14 @@ public class KReverseLinkedList {
 		System.out.println();
 	}
 	
-	private static Node reverseList(Node A, int B) {
+	private static LinkedListNode reverseList(LinkedListNode A, int B) {
 		
 		if(A == null)
 			return A;
 		
-		Node curr = A; 
-        Node next = null; 
-        Node prev = null; 
+		LinkedListNode curr = A; 
+        LinkedListNode next = null; 
+        LinkedListNode prev = null; 
          
         int count = 0; 
   

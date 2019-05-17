@@ -1,5 +1,3 @@
-package L3_String;
-
 import java.util.ArrayList;
 import java.util.Collections;
 

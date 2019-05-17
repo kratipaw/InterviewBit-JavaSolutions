@@ -1,21 +1,19 @@
-package L6_Tree;
-
 public class BinaryTree {
 
-   Node root;
+	TreeNode root;
 
    public BinaryTree() {
    }
 
    public BinaryTree(int data) {
-	   root = new Node(data);
+	   root = new TreeNode(data);
    }
 
-   public Node getRoot() {
+   public TreeNode getRoot() {
 	return root;
    }
    
-   public void setRoot(Node root) {
+   public void setRoot(TreeNode root) {
 	this.root = root;
    }
   

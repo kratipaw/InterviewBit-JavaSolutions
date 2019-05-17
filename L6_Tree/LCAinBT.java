@@ -1,21 +1,19 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 
 public class LCAinBT {
 
 	public static void main(String[] args) {
 
-		Node root = new Node(5);
-		root.left = new Node(4);
-		root.right = new Node(8);
-		root.left.left = new Node(11);
-		root.right.left = new Node(13);
-		root.right.right = new Node(4);
-		root.left.left.left = new Node(7);
-		root.left.left.right = new Node(2);
-		root.right.right.left = new Node(5);
-		root.right.right.right = new Node(1);
+		TreeNode root = new TreeNode(5);
+		root.left = new TreeNode(4);
+		root.right = new TreeNode(8);
+		root.left.left = new TreeNode(11);
+		root.right.left = new TreeNode(13);
+		root.right.right = new TreeNode(4);
+		root.left.left.left = new TreeNode(7);
+		root.left.left.right = new TreeNode(2);
+		root.right.right.left = new TreeNode(5);
+		root.right.right.right = new TreeNode(1);
 		
 		int B = 2;
 		
@@ -25,7 +23,7 @@ public class LCAinBT {
 		
 	}
 	
-	private static int lca(Node A, int B, int C) {
+	private static int lca(TreeNode A, int B, int C) {
 		
 		ArrayList<Integer> bb = new ArrayList<Integer>();
 		
@@ -35,7 +33,7 @@ public class LCAinBT {
 		
     }
 	
-	private static int lca_helper(Node A, int B, int C, ArrayList<Integer> bb, ArrayList<Integer> cc) {
+	private static int lca_helper(TreeNode A, int B, int C, ArrayList<Integer> bb, ArrayList<Integer> cc) {
 		
 		if(!findPath(A, B, bb) || !findPath(A, C, cc)) {
 			return -1;
@@ -52,14 +50,14 @@ public class LCAinBT {
 		return bb.get(i - 1);
 	}
 	
-	private static boolean findPath(Node A, int n, ArrayList<Integer> nn) {
+	private static boolean findPath(TreeNode A, int n, ArrayList<Integer> nn) {
 		
 		if(A == null)
 			return false;
 		
-		nn.add(A.data);
+		nn.add(A.val);
 		
-		if(A.data == n)
+		if(A.val == n)
 			return true;
 		
 		if(A.left != null && findPath(A.left, n, nn))

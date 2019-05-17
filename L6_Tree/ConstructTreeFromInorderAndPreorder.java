@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 
 public class ConstructTreeFromInorderAndPreorder {
@@ -11,7 +9,7 @@ public class ConstructTreeFromInorderAndPreorder {
 		int in[] = { 4, 2, 5, 1, 6, 3 }; 
         int pre[] = { 1, 2, 4, 5, 3, 6 }; 
         
-        //Node root = constructTree(in, pre, 0, in.length - 1);
+        //TreeNode root = constructTree(in, pre, 0, in.length - 1);
         
         //printInoder(root);
         
@@ -33,38 +31,38 @@ public class ConstructTreeFromInorderAndPreorder {
         B.add(6);
         B.add(3);
         
-        Node result = buildTree(A, B);
+        TreeNode result = buildTree(A, B);
         
         printInoder(result);
 	}
 	
-	private static void printInoder(Node node) {
+	private static void printInoder(TreeNode node) {
 		
 		if(node == null)
 			return;
 		
 		printInoder(node.left);
 		
-		System.out.print(node.data + "\t");
+		System.out.print(node.val + "\t");
 		
 		printInoder(node.right);
 		
 	}
 	
 	
-	private static Node constructTree(int in[], int pre[], int inStart, int inEnd) {
+	private static TreeNode constructTree(int in[], int pre[], int inStart, int inEnd) {
 		
 		if(inStart > inEnd)
 			return null;
 		
-		Node node = new Node(pre[preIndex]);
+		TreeNode node = new TreeNode(pre[preIndex]);
 		
 		preIndex++;
 		
 		if(inStart == inEnd)
 			return node;
 		
-		int inIndex = searchInOrder(in, inStart, inEnd, node.data);
+		int inIndex = searchInOrder(in, inStart, inEnd, node.val);
 
 		node.left = constructTree(in, pre, inStart, inIndex-1);
 		
@@ -84,7 +82,7 @@ public class ConstructTreeFromInorderAndPreorder {
 		return -1;
 	}
 	
-	public static Node buildTree(ArrayList<Integer> A, ArrayList<Integer> B) {
+	public static TreeNode buildTree(ArrayList<Integer> A, ArrayList<Integer> B) {
         
 		if(A == null || B == null || A.size() != B.size())
 			return null;
@@ -95,7 +93,7 @@ public class ConstructTreeFromInorderAndPreorder {
         
     }
 	
-	public static Node buildTreeUtil(ArrayList<Integer> A, ArrayList<Integer> B, int inStart, int inEnd) {
+	public static TreeNode buildTreeUtil(ArrayList<Integer> A, ArrayList<Integer> B, int inStart, int inEnd) {
 		
 		System.out.println("inStart : " + inStart);
 		
@@ -106,14 +104,14 @@ public class ConstructTreeFromInorderAndPreorder {
 		
 		System.out.println(preIndex);
 		
-		Node node = new Node(A.get(preIndex));
+		TreeNode node = new TreeNode(A.get(preIndex));
 		
 		preIndex++;
 		
 		if(inStart == inEnd)
 			return node;
 		
-		int inIndex = search(B, inStart, inEnd, node.data);
+		int inIndex = search(B, inStart, inEnd, node.val);
 		
 		System.out.println("inIndex : " + inIndex);
 		

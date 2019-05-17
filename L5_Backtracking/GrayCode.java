@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
 
 The gray code is a binary numeral system where two successive values differ in only one bit.

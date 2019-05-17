@@ -1,5 +1,3 @@
-package L3_BitMani;
-
 public class DivideIntegers {
 
 	public static void main(String[] args) {

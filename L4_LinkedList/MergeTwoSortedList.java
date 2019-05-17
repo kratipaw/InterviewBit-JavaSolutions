@@ -1,5 +1,3 @@
-package L4_LinkedList;
-
 import java.awt.List;
 
 public class MergeTwoSortedList {
@@ -8,9 +6,9 @@ public class MergeTwoSortedList {
 
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(5);
-		list.root.next = new Node(11);
-		list.root.next.next = new Node(20);
+		list.root = new LinkedListNode(5);
+		list.root.next = new LinkedListNode(11);
+		list.root.next.next = new LinkedListNode(20);
 		
 		System.out.println("list 1 : ");
 		
@@ -18,10 +16,10 @@ public class MergeTwoSortedList {
 		
 		LinkedList list2 = new LinkedList();
 
-		list2.root = new Node(7);
-		list2.root.next = new Node(11);
-		list2.root.next.next = new Node(15);
-		list2.root.next.next.next = new Node(57);
+		list2.root = new LinkedListNode(7);
+		list2.root.next = new LinkedListNode(11);
+		list2.root.next.next = new LinkedListNode(15);
+		list2.root.next.next.next = new LinkedListNode(57);
 		
 		System.out.println("list 2 : ");
 		
@@ -29,15 +27,15 @@ public class MergeTwoSortedList {
 		
 		System.out.println("merged lists : ");
 		
-		Node head = mergeTwoLists(list.root, list2.root);
+		LinkedListNode head = mergeTwoLists(list.root, list2.root);
 		
 		printList(head);
 		
 	}
 	
-	private static void printList(Node head) {
+	private static void printList(LinkedListNode head) {
 		
-		Node element = head;
+		LinkedListNode element = head;
 		
 		while(element!=null) {
 			System.out.print(element.data + " ");
@@ -47,7 +45,7 @@ public class MergeTwoSortedList {
 		System.out.println();
 	}
 	
-	private static Node mergeTwoLists(Node A, Node B) {
+	private static LinkedListNode mergeTwoLists(LinkedListNode A, LinkedListNode B) {
 		
 		if(A == null)
 			return B;
@@ -62,16 +60,16 @@ public class MergeTwoSortedList {
 			
 	}
 	
-	private static Node mergeSortedLists(Node list1, Node list2) {
+	private static LinkedListNode mergeSortedLists(LinkedListNode list1, LinkedListNode list2) {
 		
 		if(list1.next == null) {
 			list1.next = list2;
 			return list1;
 		}
 		
-		Node curr1 = list1, next1 = list1.next;
+		LinkedListNode curr1 = list1, next1 = list1.next;
 		
-		Node curr2 = list2, next2 = list2;
+		LinkedListNode curr2 = list2, next2 = list2;
 		
 		while(next1 != null && next2!=null) {
 			

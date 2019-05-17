@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -64,22 +62,5 @@ public class RecoverBST {
 			
 		}
 		
-	}
-	
-}
-
-class TreeNode {
-	
-	int val;
-
-	TreeNode left;
-    
-	TreeNode right;
-    
-    TreeNode(int x) {
-    	val = x;
-    	left=null;
-    	right=null;
-    }
-	
+	}	
 }

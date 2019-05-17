@@ -1,5 +1,3 @@
-package L3_BitMani;
-
 import java.util.ArrayList;
 import java.util.List;
 

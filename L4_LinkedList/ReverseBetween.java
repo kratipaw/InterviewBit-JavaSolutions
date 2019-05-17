@@ -1,22 +1,20 @@
-package L4_LinkedList;
-
 public class ReverseBetween {
 
 	public static void main(String[] args) {
 		
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(1);
-		list.root.next = new Node(2);
-		list.root.next.next = new Node(3);
-		list.root.next.next.next = new Node(4);
-		list.root.next.next.next.next = new Node(5);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(2);
+		list.root.next.next = new LinkedListNode(3);
+		list.root.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next = new LinkedListNode(5);
 		
 		list.printLinkedList();
 		
 		//reverseRange(list, 1, 2);
 		
-		Node node = reverseBetween(list.root, 1, 3);
+		LinkedListNode node = reverseBetween(list.root, 1, 3);
 		
 		printLinkedList(node);
 	}
@@ -30,7 +28,7 @@ public class ReverseBetween {
 		
 		int count =  0;
 		
-		Node temp = list.root;
+		LinkedListNode temp = list.root;
 		if(B>1) {
 		while(temp != null) {
 			
@@ -43,16 +41,16 @@ public class ReverseBetween {
 			temp = temp.next;
 		}
 		}
-		Node prev = null;
-		Node node = null;
-		Node start = null;
+		LinkedListNode prev = null;
+		LinkedListNode node = null;
+		LinkedListNode start = null;
 		if(B>1)
 			node = temp.next;
 		else {
 			node = temp;
 			start = temp;
 		}
-		Node next = null;
+		LinkedListNode next = null;
 		
 		while(node!=null && count<C) {
 			count++;
@@ -74,15 +72,15 @@ public class ReverseBetween {
 	}*/
 	
 	
-	public static Node reverseBetween(Node A, int B, int C) {
+	public static LinkedListNode reverseBetween(LinkedListNode A, int B, int C) {
         
         if(B == C)
             return A;
         
-        Node node = A;
+        LinkedListNode node = A;
         int count = 0;
-        Node start = null, startPrev = null;
-        Node end = null, endNext = null;
+        LinkedListNode start = null, startPrev = null;
+        LinkedListNode end = null, endNext = null;
         boolean flag = true;
         if(B == 1)
             flag = false;
@@ -106,7 +104,7 @@ public class ReverseBetween {
         
         end.next = null;
         
-        Node rev = reverse(start);
+        LinkedListNode rev = reverse(start);
 
         if(flag)
             startPrev.next = rev;
@@ -119,12 +117,12 @@ public class ReverseBetween {
         
     }
     
-    private static Node reverse(Node A){
+    private static LinkedListNode reverse(LinkedListNode A){
         
-        Node node = A;
+        LinkedListNode node = A;
         
-        Node prev = null;
-        Node next = null;
+        LinkedListNode prev = null;
+        LinkedListNode next = null;
         
         while(node!=null){
             
@@ -137,9 +135,9 @@ public class ReverseBetween {
         return prev;
     }
     
-    private static void printLinkedList(Node node) {
+    private static void printLinkedList(LinkedListNode node) {
     	
-    	Node element = node;
+    	LinkedListNode element = node;
     	
     	while(element != null) {
     		System.out.print(element.data + "   ");

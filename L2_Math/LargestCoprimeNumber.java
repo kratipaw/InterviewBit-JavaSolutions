@@ -1,5 +1,3 @@
-package L2_Math;
-
 public class LargestCoprimeNumber {
 
 	public static void main(String[] args) {

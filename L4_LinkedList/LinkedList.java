@@ -1,8 +1,6 @@
-package L4_LinkedList;
-
 public class LinkedList {
 
-	Node root;
+	LinkedListNode root;
 	
 	public LinkedList() {
 		// TODO Auto-generated constructor stub
@@ -10,7 +8,7 @@ public class LinkedList {
 	
 	public void printLinkedList() {
 		
-		Node element = this.root;
+		LinkedListNode element = this.root;
 		
 		while(element != null) {
 			System.out.print(element.data + "   ");
@@ -22,7 +20,7 @@ public class LinkedList {
 	
 
 public int length() {
-	Node element = root;
+	LinkedListNode element = root;
 	int length = 0;
 	while(element != null) {
 		length++;

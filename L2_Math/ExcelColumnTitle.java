@@ -1,5 +1,3 @@
-package L2_Math;
-
 public class ExcelColumnTitle {
 
 	public static void main(String[] args) {

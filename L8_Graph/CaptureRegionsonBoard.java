@@ -1,5 +1,3 @@
-package L8_Graph;
-
 import java.util.ArrayList;
 
 public class CaptureRegionsonBoard {

@@ -1,21 +1,19 @@
-package L4_LinkedList;
-
 public class SortList {
 
 	public static void main(String[] args) {
 
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(10);
-		list.root.next = new Node(5);
-		list.root.next.next = new Node(4);
-		list.root.next.next.next = new Node(3);
+		list.root = new LinkedListNode(10);
+		list.root.next = new LinkedListNode(5);
+		list.root.next.next = new LinkedListNode(4);
+		list.root.next.next.next = new LinkedListNode(3);
 		
 		System.out.println("original list : ");
 		
 		printList(list.root);
 		
-		Node newHead = sortList(list.root);
+		LinkedListNode newHead = sortList(list.root);
 		
 		System.out.println("Sorted list : ");
 		
@@ -23,9 +21,9 @@ public class SortList {
 		
 	}
 	
-	private static void printList(Node head) {
+	private static void printList(LinkedListNode head) {
 		
-		Node element = head;
+		LinkedListNode element = head;
 		
 		while(element!=null) {
 			System.out.print(element.data + " ");
@@ -35,31 +33,31 @@ public class SortList {
 		System.out.println();
 	}
 	
-	private static Node sortList(Node A) {
+	private static LinkedListNode sortList(LinkedListNode A) {
 		
 		if(A == null || A.next == null)
 			return A;
 		
-		Node middle = getMiddle(A);
-		Node nextToMiddle = middle.next;
+		LinkedListNode middle = getMiddle(A);
+		LinkedListNode nextToMiddle = middle.next;
 		
 		middle.next = null;
 		
-		Node left = sortList(A);
-		Node right = sortList(nextToMiddle);
+		LinkedListNode left = sortList(A);
+		LinkedListNode right = sortList(nextToMiddle);
 		
-		Node head = mergeTwoLists(left, right);
+		LinkedListNode head = mergeTwoLists(left, right);
 		
 		return head;
 	}
 	
-	private static Node getMiddle(Node node) {
+	private static LinkedListNode getMiddle(LinkedListNode node) {
 
 		if(node == null)
 			return null;
 		
-		Node slow = node;
-		Node fast = node.next;
+		LinkedListNode slow = node;
+		LinkedListNode fast = node.next;
 		
 		while(fast!=null) {
 			fast = fast.next;
@@ -72,7 +70,7 @@ public class SortList {
 		return slow;
 	}
 	
-private static Node mergeTwoLists(Node A, Node B) {
+private static LinkedListNode mergeTwoLists(LinkedListNode A, LinkedListNode B) {
 		
 		if(A == null)
 			return B;
@@ -87,16 +85,16 @@ private static Node mergeTwoLists(Node A, Node B) {
 			
 	}
 	
-	private static Node mergeSortedLists(Node list1, Node list2) {
+	private static LinkedListNode mergeSortedLists(LinkedListNode list1, LinkedListNode list2) {
 		
 		if(list1.next == null) {
 			list1.next = list2;
 			return list1;
 		}
 		
-		Node curr1 = list1, next1 = list1.next;
+		LinkedListNode curr1 = list1, next1 = list1.next;
 		
-		Node curr2 = list2, next2 = list2;
+		LinkedListNode curr2 = list2, next2 = list2;
 		
 		while(next1 != null && next2!=null) {
 			

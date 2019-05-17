@@ -1,5 +1,3 @@
-package L4_StacksAndQueues;
-
 import java.util.Stack;
 
 public class SimplifyDirectoryPath {

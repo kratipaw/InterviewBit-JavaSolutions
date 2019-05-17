@@ -1,34 +1,32 @@
-package L4_LinkedList;
-
 public class RotateList {
 
 	public static void main(String[] args) {
 		
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(1);
-		list.root.next = new Node(2);
-		list.root.next.next = new Node(3);
-		list.root.next.next.next = new Node(4);
-		list.root.next.next.next.next = new Node(5);
-		//list.root.next.next.next.next.next = new Node(3);
-		/*list.root.next.next.next.next.next.next = new Node(3);
-		list.root.next.next.next.next.next.next.next = new Node(4);
-		list.root.next.next.next.next.next.next.next.next = new Node(4);*/
-		//list.root.next.next.next.next.next.next.next.next.next = new Node(5);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(2);
+		list.root.next.next = new LinkedListNode(3);
+		list.root.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next = new LinkedListNode(5);
+		//list.root.next.next.next.next.next = new LinkedListNode(3);
+		/*list.root.next.next.next.next.next.next = new LinkedListNode(3);
+		list.root.next.next.next.next.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next.next.next.next.next = new LinkedListNode(4);*/
+		//list.root.next.next.next.next.next.next.next.next.next = new LinkedListNode(5);
 		
 		list.printLinkedList();
 		
-		Node result = rotateNode(list.root, 2);
+		LinkedListNode result = rotateNode(list.root, 2);
 		
 		printLinkedList(result);
 		
 
 	}
 	
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
 	
-    	Node element = node;
+    	LinkedListNode element = node;
     	
     	while(element != null) {
     		System.out.print(element.data + "   ");
@@ -38,12 +36,12 @@ public class RotateList {
     	System.out.println();
     }
 
-	private static Node rotateNode(Node A, int B) {
+	private static LinkedListNode rotateNode(LinkedListNode A, int B) {
 		
 		if(B == 0)
 			return A;
 		
-		Node curr = A;
+		LinkedListNode curr = A;
 		
 		int count = 1;
 		
@@ -56,7 +54,7 @@ public class RotateList {
 		
 		int preLen = count - B%count-1;
 		
-		Node prev = A;
+		LinkedListNode prev = A;
 		
 		while(preLen>0) {
 			prev = prev.next;

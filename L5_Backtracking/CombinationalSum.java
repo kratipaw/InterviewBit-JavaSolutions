@@ -1,5 +1,3 @@
-package L5_Backtracking;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

@@ -1,5 +1,3 @@
-package L7_Greedy;
-
 import java.util.ArrayList;
 import java.util.Collections;
 

@@ -1,16 +1,14 @@
-package L6_Tree;
-
 import java.util.Stack;
 
 public class KthSmallestElementInBST {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(8);
-		A.left = new Node(7);
-		A.right = new Node(10);
-		A.left.left = new Node(6);
-		A.right.left = new Node(9);
+		TreeNode A = new TreeNode(8);
+		A.left = new TreeNode(7);
+		A.right = new TreeNode(10);
+		A.left.left = new TreeNode(6);
+		A.right.left = new TreeNode(9);
 		
 		int B = 2;
 		
@@ -18,17 +16,17 @@ public class KthSmallestElementInBST {
 		
 	}
 
-	private static int kthsmallest(Node A, int B) {
+	private static int kthsmallest(TreeNode A, int B) {
 		
 		if(A == null)
 			return -1;
 		
 		int idx = 0;
 		
-		Stack<Node> st = new Stack<>();
+		Stack<TreeNode> st = new Stack<>();
 		
 		
-		Node curr = A;
+		TreeNode curr = A;
 		
 		while(curr != null || !st.isEmpty()) {
 			
@@ -42,7 +40,7 @@ public class KthSmallestElementInBST {
 			idx++;
 			
 			if(idx == B)
-				return curr.data;
+				return curr.val;
 			
 			curr = curr.right;
 			

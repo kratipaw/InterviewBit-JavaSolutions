@@ -1,5 +1,3 @@
-package L3_String;
-
 public class AddTwoBinaryStrings {
 
 	public static void main(String[] args) {

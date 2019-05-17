@@ -1,5 +1,3 @@
-package L5_Hashing;
-
 import java.util.HashMap;
 import java.util.Map;
 

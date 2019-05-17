@@ -1,30 +1,28 @@
-package L4_LinkedList;
-
 public class AddTwoNumAsList {
 
 	public static void main(String[] args) {
 
-		Node A = new Node(2);
-		A.next = new Node(4);
-		A.next.next = new Node(3);
+		LinkedListNode A = new LinkedListNode(2);
+		A.next = new LinkedListNode(4);
+		A.next.next = new LinkedListNode(3);
 		
 		printLinkedList(A);
 		
-		Node B = new Node(5);
-		B.next = new Node(5);
-		B.next.next = new Node(4);
+		LinkedListNode B = new LinkedListNode(5);
+		B.next = new LinkedListNode(5);
+		B.next.next = new LinkedListNode(4);
 		
 		printLinkedList(B);
 		
-		Node result = addTwoNumbers(A, B);
+		LinkedListNode result = addTwoNumbers(A, B);
 		
 		printLinkedList(result);
 		
 	}
 
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
     	
-    	Node element = node;
+    	LinkedListNode element = node;
     	
     	while(element != null) {
     		System.out.print(element.data + "   ");
@@ -34,15 +32,15 @@ public class AddTwoNumAsList {
     	System.out.println();
     }
 	
-	private static Node addTwoNumbers(Node A, Node B) {
+	private static LinkedListNode addTwoNumbers(LinkedListNode A, LinkedListNode B) {
     
-		Node first = A;
-		Node second = B;
+		LinkedListNode first = A;
+		LinkedListNode second = B;
 		
-		Node result = null;
+		LinkedListNode result = null;
 		
-		Node temp = null;
-		Node prev = null;
+		LinkedListNode temp = null;
+		LinkedListNode prev = null;
 		
 		int carry = 0, sum = 0;
 		
@@ -65,7 +63,7 @@ public class AddTwoNumAsList {
 			
 			sum = sum % 10;
 			
-			temp = new Node(sum);
+			temp = new LinkedListNode(sum);
 			
 			if(result == null)
 				result = temp;
@@ -82,7 +80,7 @@ public class AddTwoNumAsList {
 		}
 		
 		if(carry>0)
-			temp.next = new Node(carry);
+			temp.next = new LinkedListNode(carry);
 		
 		return result;
 	

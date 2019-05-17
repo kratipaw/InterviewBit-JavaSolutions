@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 
 public class ConstructTreeFromInorderAndPostorder {
@@ -15,38 +13,38 @@ public class ConstructTreeFromInorderAndPostorder {
 		
 		postIndx = in.length - 1;
 		
-		Node node = constructTree(in, post, 0, postIndx);
+		TreeNode node = constructTree(in, post, 0, postIndx);
 		
 		printInoder(node);
 	}
 	
-	private static void printInoder(Node node) {
+	private static void printInoder(TreeNode node) {
 		
 		if(node == null)
 			return;
 		
 		printInoder(node.left);
 		
-		System.out.print(node.data + "\t");
+		System.out.print(node.val + "\t");
 		
 		printInoder(node.right);
 		
 	}
 	
-	private static Node constructTree(int in[], int post[], int inStart, int inEnd) {
+	private static TreeNode constructTree(int in[], int post[], int inStart, int inEnd) {
 		
 		if(inStart > inEnd) {
 			return null;
 		}
 		
-		Node node = new Node(post[postIndx]);
+		TreeNode node = new TreeNode(post[postIndx]);
 		
 		postIndx--;
 		
 		if(inStart == inEnd)
 			return node;
 		
-		int inIndex = searchInorder(in, inStart, inEnd, node.data);
+		int inIndex = searchInorder(in, inStart, inEnd, node.val);
 		
 		node.right = constructTree(in, post, inIndex + 1, inEnd);
 		
@@ -68,7 +66,7 @@ public class ConstructTreeFromInorderAndPostorder {
 		
 	}
 	
-	private static Node buildTree(ArrayList<Integer> A, ArrayList<Integer> B) {
+	private static TreeNode buildTree(ArrayList<Integer> A, ArrayList<Integer> B) {
 		
 		if(A == null || B == null || A.size() != B.size())
 			return null;
@@ -79,16 +77,16 @@ public class ConstructTreeFromInorderAndPostorder {
 		
     }
 	
-	private static Node buildTreeUtil(ArrayList<Integer> A, ArrayList<Integer> B, int inStart, int inEnd) {
+	private static TreeNode buildTreeUtil(ArrayList<Integer> A, ArrayList<Integer> B, int inStart, int inEnd) {
 		
 		if(inStart > inEnd)
 			return null;
 		
-		Node node = new Node(B.get(postIndx));
+		TreeNode node = new TreeNode(B.get(postIndx));
 		
 		postIndx--;
 		
-		int idx = search(A, inStart, inEnd, node.data);
+		int idx = search(A, inStart, inEnd, node.val);
 		
 		node.right = buildTreeUtil(A, B, idx + 1, inEnd);
 		

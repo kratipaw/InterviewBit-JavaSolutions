@@ -1,32 +1,30 @@
-package L4_LinkedList;
-
 public class RemoveNthNodeFromEnd {
 
 	public static void main(String[] args) {
 		
 		LinkedList list = new LinkedList();
 		
-		list.root = new Node(1);
-		list.root.next = new Node(2);
-		list.root.next.next = new Node(3);
-		list.root.next.next.next = new Node(4);
-		list.root.next.next.next.next = new Node(5);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(2);
+		list.root.next.next = new LinkedListNode(3);
+		list.root.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next = new LinkedListNode(5);
 		
 		list.printLinkedList();
-		/*Node result = removeNthFromEnd(list.root, 2);
+		/*LinkedListNode result = removeNthFromEnd(list.root, 2);
 		
 		printLinkedList(result);
 		*/
 		System.out.println("Efficient : ");
 		
-		Node res = removeNthNodeFromEnd_Effecient(list.root, 6);
+		LinkedListNode res = removeNthNodeFromEnd_Effecient(list.root, 6);
 		printLinkedList(res);
 
 	}
 	
-private static void printLinkedList(Node node) {
+private static void printLinkedList(LinkedListNode node) {
     	
-    	Node element = node;
+    	LinkedListNode element = node;
     	
     	while(element != null) {
     		System.out.print(element.data + "   ");
@@ -36,7 +34,7 @@ private static void printLinkedList(Node node) {
     	System.out.println();
     }
 	
-	private static Node removeNthFromEnd(Node head, int B) {
+	private static LinkedListNode removeNthFromEnd(LinkedListNode head, int B) {
 		
 		int len = length(head);
 		
@@ -49,8 +47,8 @@ private static void printLinkedList(Node node) {
 		int fromStart = len - B + 1;
 		
 		int count = 0;
-		Node element = head;
-		Node prev = null;
+		LinkedListNode element = head;
+		LinkedListNode prev = null;
 		while(element!=null) {
 			
 			count++;
@@ -68,9 +66,9 @@ private static void printLinkedList(Node node) {
 		
 	}
 	
-	private static int length(Node head) {
+	private static int length(LinkedListNode head) {
 		
-		Node element = head;
+		LinkedListNode element = head;
 		
 		int length = 0;
 		
@@ -84,10 +82,10 @@ private static void printLinkedList(Node node) {
 		return length;
 	}
 	
-	private static Node removeNthNodeFromEnd_Effecient(Node A, int B) {
+	private static LinkedListNode removeNthNodeFromEnd_Effecient(LinkedListNode A, int B) {
 		
-		Node first = A;
-		Node second = A;
+		LinkedListNode first = A;
+		LinkedListNode second = A;
 		
 		int count = 0;
 		
@@ -102,7 +100,7 @@ private static void printLinkedList(Node node) {
 			count++;
 		}
 
-		Node prev = null;
+		LinkedListNode prev = null;
 		while(first!=null) {
 			prev = second;
 			first = first.next;

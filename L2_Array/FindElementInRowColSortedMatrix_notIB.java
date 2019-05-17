@@ -1,5 +1,3 @@
-package L2_Array;
-
 public class FindElementInRowColSortedMatrix_notIB {
 
 	public static void main(String[] args) {

@@ -1,5 +1,3 @@
-package L7_DP;
-
 import java.util.Arrays;
 import java.util.List;
 

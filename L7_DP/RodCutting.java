@@ -1,5 +1,3 @@
-package L7_DP;
-
 import java.util.ArrayList;
 import java.util.Collections;
 

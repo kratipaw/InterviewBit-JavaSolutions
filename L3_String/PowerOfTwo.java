@@ -1,5 +1,3 @@
-package L3_String;
-
 /**
 
 Find if Given number is power of 2 or not. 

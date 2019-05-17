@@ -1,5 +1,3 @@
-package L6_Tree;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -9,12 +7,12 @@ public class VerticalTraversal {
 
 	public static void main(String[] args) {
 
-		Node root = new Node(6);
-		root.left = new Node(3);
-		root.right = new Node(7);
-		root.left.left = new Node(2);
-		root.left.right = new Node(5);
-		root.right.right = new Node(9);
+		TreeNode root = new TreeNode(6);
+		root.left = new TreeNode(3);
+		root.right = new TreeNode(7);
+		root.left.left = new TreeNode(2);
+		root.left.right = new TreeNode(5);
+		root.right.right = new TreeNode(9);
 		
 		ArrayList<ArrayList<Integer>> result = verticalOrderTraversal(root);
 		
@@ -23,7 +21,7 @@ public class VerticalTraversal {
 		}
 	}
 
-	private static ArrayList<ArrayList<Integer>> verticalOrderTraversal(Node A) {
+	private static ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode A) {
 	
 		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         
@@ -35,7 +33,7 @@ public class VerticalTraversal {
         
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
         
-        Queue<Node> qu = new LinkedList<>();
+        Queue<TreeNode> qu = new LinkedList<>();
         Queue<Integer> level = new LinkedList<>();
         
         qu.add(A);
@@ -43,17 +41,17 @@ public class VerticalTraversal {
         
         while(!qu.isEmpty()) {
             
-            Node temp = qu.poll();
+            TreeNode temp = qu.poll();
             int lev = level.poll();
             
             minHD = Math.min(minHD, lev);
             maxHD = Math.max(maxHD, lev);
             
             if(map.containsKey(lev))
-                map.get(lev).add(temp.data);
+                map.get(lev).add(temp.val);
             else {
                 ArrayList<Integer> list = new ArrayList<>();
-                list.add(temp.data);
+                list.add(temp.val);
                 map.put(lev, list);
             }
             

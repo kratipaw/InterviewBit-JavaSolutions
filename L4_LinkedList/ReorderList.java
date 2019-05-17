@@ -1,22 +1,20 @@
-package L4_LinkedList;
-
 public class ReorderList {
 
 	public static void main(String[] args) {
 
 		
 		LinkedList list = new LinkedList();
-		list.root = new Node(1);
-		list.root.next = new Node(2);
-		list.root.next.next = new Node(3);
-		list.root.next.next.next = new Node(4);
-		list.root.next.next.next.next = new Node(5);
-		list.root.next.next.next.next.next = new Node(6);
+		list.root = new LinkedListNode(1);
+		list.root.next = new LinkedListNode(2);
+		list.root.next.next = new LinkedListNode(3);
+		list.root.next.next.next = new LinkedListNode(4);
+		list.root.next.next.next.next = new LinkedListNode(5);
+		list.root.next.next.next.next.next = new LinkedListNode(6);
 		
 		System.out.println("Original List : ");
 		list.printLinkedList();
 		
-		Node result = reorderList(list.root);
+		LinkedListNode result = reorderList(list.root);
 		
 		System.out.println("Rearranged List : ");
 		
@@ -25,9 +23,9 @@ public class ReorderList {
 	}
 	
 	
-	private static void printLinkedList(Node node) {
+	private static void printLinkedList(LinkedListNode node) {
 		
-		Node element = node;
+		LinkedListNode element = node;
 		
 		while(element != null) {
 			System.out.print(element.data + "   ");
@@ -37,29 +35,29 @@ public class ReorderList {
 		System.out.println();
 	}
 	
-	private static Node reorderList(Node A) {
+	private static LinkedListNode reorderList(LinkedListNode A) {
 		
 		if(A== null)
 			return null;
 		
-		Node slow = A;
-		Node fast = A;
+		LinkedListNode slow = A;
+		LinkedListNode fast = A;
 		
 		while(slow!=null && fast!=null && fast.next!=null) {
 			slow = slow.next;
 			fast = fast.next.next;
 		}
 		
-		Node list1 = A;
-		Node list2 = slow.next;
+		LinkedListNode list1 = A;
+		LinkedListNode list2 = slow.next;
 		
 		slow.next = null; // to separate out list 1 from list 2
 		
 		//reverse list 2
 		
-		Node prev = null;
-		Node next = null;
-		Node curr = list2;
+		LinkedListNode prev = null;
+		LinkedListNode next = null;
+		LinkedListNode curr = list2;
 		
 		while(curr!=null) {
 			next = curr.next;
@@ -72,7 +70,7 @@ public class ReorderList {
 		
 		//Merge list 1 and list 2 alternatively
 		
-		Node result = new Node(0);
+		LinkedListNode result = new LinkedListNode(0);
 		curr = result;
 		
 		while(list1!=null || list2!=null) {
