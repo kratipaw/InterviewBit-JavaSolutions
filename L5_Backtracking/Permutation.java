@@ -51,7 +51,7 @@ public class Permutation{
         
     }
     
-    public void util_2(ArrayList<Integer> A, int idx, ArrayList<ArrayList<Integer>> result){
+    /*public void util_2(ArrayList<Integer> A, int idx, ArrayList<ArrayList<Integer>> result){
        
        if (idx >= A.size() - 1) {
             result.add(new ArrayList<>(A));
@@ -64,5 +64,5 @@ public class Permutation{
             java.util.Collections.swap(A, idx, i);
         }
         
-    }
+    }*/
 }
