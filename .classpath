@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="L5_Hashing"/>
+	<classpathentry kind="src" path="L2_Math"/>
+	<classpathentry kind="src" path="L3_String"/>
+	<classpathentry kind="src" path="L2_Array"/>
+	<classpathentry kind="src" path="L6_Tree"/>
+	<classpathentry kind="src" path="L3_BitMani"/>
+	<classpathentry kind="src" path="L5_Backtracking"/>
+	<classpathentry kind="src" path="L7_DP"/>
+	<classpathentry kind="src" path="L3_BinarySearch"/>
+	<classpathentry kind="src" path="L3_TwoPointers"/>
+	<classpathentry kind="src" path="L4_LinkedList"/>
+	<classpathentry kind="src" path="L4_StacksAndQueues"/>
+	<classpathentry kind="src" path="L6_HeapsAndMaps"/>
+	<classpathentry kind="src" path="L8_Graph"/>
+	<classpathentry kind="src" path="L7_Greedy"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
