@@ -69,4 +69,30 @@ public class MatrixSearch {
 		
 		return 0;
 	}
+	
+	public int searchMatrix_better(ArrayList<ArrayList<Integer>> a, int b) {
+		
+		int rows = a.size();
+
+		int cols = a.get(0).size();
+
+		int row = rows - 1;
+
+		int col = 0;
+
+		while(row >= 0 && col < cols) {
+
+		    if(a.get(row).get(col) > b)
+			row--;
+
+		    else if(a.get(row).get(col) < b)
+			col++;
+
+		    else if(a.get(row).get(col) == b)
+			return 1;
+
+		}
+
+		return 0;
+    }
 }
