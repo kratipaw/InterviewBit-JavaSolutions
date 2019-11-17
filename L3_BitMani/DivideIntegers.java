@@ -37,41 +37,45 @@ public class DivideIntegers {
 	}
 	
 	private static long divide_bit(int A, int B) {
-        
-        if(B==0)
+        	
+		if(B==0)
             return Integer.MAX_VALUE;
         
-        if(B==-1 && A == Integer.MIN_VALUE)
-            return Integer.MAX_VALUE;
-        
-        long longA = Math.abs((long)A);
-        long longB = Math.abs((long)B);
-    
-        int sign = ((A < 0) ^ (B < 0)) ? -1 : 1;
-    
-        long quotient = 0, temp = 0;
-        
-        for (int i = 31; i >= 0; --i) 
-        {
-            if (temp + (longB << i) <= longA) 
-            {
-            	System.out.println("i :: " + i);
-            	
-                temp = temp + (longB << i);
-                
-                System.out.println("temp :: " + temp);
-                
-                quotient = quotient | (1L << i);
-                
-            }
-        }
-        
-        if (sign < 0) 
-            quotient = -quotient;
-        
-        if(quotient >= Integer.MAX_VALUE || quotient <= Integer.MIN_VALUE)
-            return Integer.MAX_VALUE;
-        
-        return  (int)quotient;
+		if(B==-1 && A == Integer.MIN_VALUE)
+		    return Integer.MAX_VALUE;
+
+		if(B == -1 || B == 1)
+		    return B * A;
+
+		long longA = Math.abs((long)A);
+		long longB = Math.abs((long)B);
+
+		int sign = ((A < 0) ^ (B < 0)) ? -1 : 1;
+
+		long quotient = 0, temp = 0;
+
+		for (int i = 31; i >= 0; --i) 
+		{
+		    if (temp + (longB << i) <= longA) 
+		    {
+			//System.out.println("i :: " + i);
+
+			temp = temp + (longB << i);
+
+			//System.out.println("temp :: " + temp);
+
+			quotient = quotient | (1L << i);
+
+		    }
+		}
+
+		if (sign < 0) 
+		    quotient = -quotient;
+
+		if(quotient >= Integer.MAX_VALUE || quotient <= Integer.MIN_VALUE)
+		    return Integer.MAX_VALUE;
+
+		return  (int)quotient;
+        	
 	}
 }
